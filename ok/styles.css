@@ -1,0 +1,745 @@
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+.frase {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    font-size: clamp(32px, 8vw, 80px);
+    /* 👈 responsive automático */
+    letter-spacing: -2px;
+    line-height: 1.1;
+
+}
+
+.slide.active .info-bottom {
+    bottom: -30px;
+}
+
+.linea {
+    width: 1050px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+
+    animation: moverX 3s ease-in-out infinite alternate;
+}
+
+/* animación horizontal */
+@keyframes moverX {
+    from {
+        transform: translateX(-20px);
+    }
+
+    to {
+        transform: translateX(20px);
+    }
+}
+
+.linea span {
+    opacity: 0;
+    transform: translateY(20px);
+    display: inline-block;
+    animation: aparecer 0.5s forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.carrusel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* Asegúrate de que ocupe el ancho total */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+/* 1. El contenedor del slide debe ser la referencia */
+
+
+.logo-dvd {
+    position: absolute;
+    width: 150px;
+    /* Ajusta el tamaño que quieras */
+    opacity: 1.5;
+    /* Para que sea sutil y no tape el texto */
+    pointer-events: none;
+    /* Para que no interfiera con clicks */
+    z-index: 0;
+    /* Por detrás del texto */
+
+    /* Animación: un tiempo para X y otro para Y crea el efecto rebote */
+    animation: bounceX 5s linear infinite alternate,
+        bounceY 3.2s linear infinite alternate;
+}
+
+@keyframes bounceX {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: calc(100% - 150px);
+    }
+}
+
+@keyframes bounceY {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: calc(100% - 100px);
+    }
+
+    /* 100% menos el alto del logo */
+}
+
+/* Asegura que la frase esté por encima del logo */
+.frase {
+    position: relative;
+    z-index: 1;
+}
+
+/* Botones */
+.btn {
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+    /* Super importante: siempre arriba */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #999;
+    white-space: nowrap;
+    /* Evita que el texto se rompa al rotar */
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.btn:hover {
+    color: #00bcd4;
+}
+
+.prev {
+    left: 20px;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+}
+
+.next {
+    right: 20px;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center;
+}
+
+.flecha {
+    display: inline-block;
+    color: black;
+    margin: 0 10px;
+    font-size: 24px;
+
+}
+
+.prev .flecha {
+    transform: rotate(90deg);
+}
+
+.next .flecha {
+    transform: rotate(-90deg);
+}
+
+.info-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 90%;
+    padding: 0 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-left {
+    max-width: 400px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Iconos */
+.redes {
+    display: flex;
+    gap: 15px;
+}
+
+.icono {
+    width: 24px;
+    height: 24px;
+    filter: grayscale(100%);
+    /* 👈 estilo minimalista */
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+/* Hover pro */
+.icono:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.contacto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #00bcd4;
+    /* celeste mar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50px;
+    /* 👈 estilo pill */
+}
+
+/* Flecha en círculo */
+.circulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.servicios {
+    background: rgb(0, 0, 0);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 80px;
+
+}
+
+.servicios-container {
+    width: 80%;
+}
+
+.titulo {
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #00bcd4;
+}
+
+.subtitulo {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background: linear-gradient(135deg, #00bcd4, #0097a7);
+    padding: 30px;
+    height: 320px;
+    width: 220px;
+    border-radius: 20px;
+
+    text-align: center;
+    transition: 0.4s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+}
+
+/* Icono */
+.card .icono {
+    font-size: 40px;
+    margin-bottom: 15px;
+    padding: 15px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Texto */
+.card h3 {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.card p {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.servicios .texto-left {
+    color: #ccc;
+}
+
+.servicios .icono {
+    filter: invert(1);
+    /* 👈 vuelve blancos los SVG */
+}
+
+.nosotros {
+    background: #fff;
+    color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding-bottom: 85px;
+}
+
+.nosotros-container {
+    width: 80%;
+}
+
+/* Título */
+.titulo {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+/* Subtítulo */
+.subtitulo {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+/* Contenido en dos columnas */
+.contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    text-align: left;
+
+    margin-top: -20px;
+
+}
+
+/* Párrafos */
+.texto {
+    width: 45%;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.proceso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Cada paso */
+.paso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px;
+}
+
+/* Título */
+.paso h3 {
+    margin-bottom: 10px;
+}
+
+/* Imagen */
+.paso img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Descripción */
+.paso p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Flechas */
+.flecha {
+    font-size: 30px;
+    color: #00bcd4;
+    /* celeste mar */
+}
+
+.portafolio {
+    background: black;
+    /* 👈 fondo negro */
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding-bottom: 90px;
+}
+
+/* Subtítulo */
+.portafolio .subtitulo {
+    color: #ccc;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.portafolio-container {
+    width: 80%;
+}
+
+.portafolio .texto-left {
+    color: #ccc;
+    font-size: 12px;
+    line-height: 1;
+
+}
+
+.portafolio .icono {
+    filter: invert(1);
+    /* 👈 vuelve blancos los SVG */
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    /* 👈 ancho fijo */
+    justify-content: center;
+    /* 👈 centra el grid */
+    gap: 20px;
+}
+
+/* Cuadros */
+.item {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: 0.3s;
+    filter: brightness(0.8);
+    border-radius: 12px;
+}
+
+.item:hover img {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+.servicios,
+.portafolio,
+.nosotros {
+    padding-top: 23px;
+
+    scroll-margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. Reset General */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* 2. Sección Frase Principal */
+    .frase {
+        height: auto;
+        min-height: 70vh;
+        /* Para que ocupe casi toda la pantalla pero sea flexible */
+        padding: 40px 20px;
+        font-size: 34px;
+        /* Un poco más grande para impacto */
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .logo-dvd {
+        width: 80px;
+        animation-duration: 8s, 5s;
+        /* Más lento en móvil */
+    }
+
+    @keyframes bounceX {
+        from {
+            left: 0;
+        }
+
+        to {
+            left: calc(100% - 80px);
+        }
+    }
+
+    @keyframes bounceY {
+        from {
+            top: 0;
+        }
+
+        to {
+            top: calc(100% - 50px);
+        }
+    }
+
+    .linea {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        text-align: center;
+
+        animation: moverXmobile 4s ease-in-out infinite alternate;
+    }
+
+
+    /* 3. El Carrusel / Slides */
+    .slides {
+        display: block;
+        /* Quitamos el flex para que fluyan hacia abajo */
+        transform: none !important;
+    }
+
+    .slide {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 40px 0;
+        display: block;
+    }
+
+    .slide+.slide {
+        margin-top: 40px;
+    }
+
+    /* 4. Servicios (Cards) */
+    .cards {
+        flex-direction: column;
+        /* Una card por fila */
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+        /* Evita que se estiren demasiado en tablets */
+        height: auto;
+        min-height: 250px;
+        padding: 20px;
+        border-radius: 18px;
+        gap: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .card .icono {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    /* 5. Secciones Nosotros y Portafolio */
+    .titulo {
+        font-size: 32px;
+        margin-bottom: 5px;
+    }
+
+    .subtitulo {
+        font-size: 13px;
+        margin-bottom: 25px;
+        opacity: 0.8;
+    }
+
+    .contenido {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .texto {
+        width: 100%;
+        font-size: 15px;
+        color: #444;
+
+    }
+
+    .paso {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .paso p {
+        font-size: 13px;
+    }
+
+    /* 6. El Proceso (Pasos) */
+    .proceso {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .proceso .flecha {
+        transform: rotate(90deg);
+        /* La flecha apunta hacia abajo ahora */
+        margin: -10px 0;
+    }
+
+    /* 7. Footer / Info Bottom */
+    .info-bottom {
+        position: relative;
+        /* Ya no flota sobre el contenido */
+        bottom: 0;
+        width: 100%;
+        padding: 40px 0;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contacto {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .texto-left {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    section {
+        scroll-margin-top: 80px;
+    }
+
+    .right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* 8. Grid de Portafolio */
+    .grid {
+        grid-template-columns: 1fr;
+        /* Una columna para que las fotos luzcan */
+        gap: 12px;
+    }
+
+    .item {
+        border-radius: 15px;
+    }
+
+    .item img {
+        height: 200px;
+    }
+
+    /* Ocultar botones de navegación en móvil si no hay JS de swipe */
+    .btn {
+        display: none;
+    }
+
+    .servicios,
+    .nosotros,
+    .portafolio {
+        text-align: left;
+    }
+
+    .servicios-container,
+    .nosotros-container,
+    .portafolio-container {
+        align-items: flex-start;
+        padding: 0 20px;
+
+    }
+
+    .servicios {
+        text-align: center;
+    }
+
+    .servicios-container {
+        margin: 0 auto;
+        /* 👈 centra el bloque */
+    }
+}
+
+.contacto:hover {
+    transform: scale(1.05);
+}
+
+@keyframes moverXmobile {
+    from {
+        transform: translateX(-10px);
+    }
+
+    to {
+        transform: translateX(10px);
+    }
+}
