@@ -10,7 +10,6 @@ function loadNavbar() {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: all 0.3s ease;
 
-    /* 🔥 efecto glass */
     backdrop-filter: blur(10px);
     background: rgba(255,255,255,0.7);
 }
@@ -99,6 +98,8 @@ function loadNavbar() {
     border-radius: 12px;
     overflow: hidden;
     padding: 10px 0;
+    z-index: 10000;
+
 }
 
 #menu-check:checked ~ .nav-menu { 
@@ -149,43 +150,85 @@ function loadNavbar() {
 .nav-menu a:hover .arrow-icon-nav {
     transform: translateX(5px);
 }
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+
+    z-index: 9998;
+}
+    #menu-check:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+    .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#lang-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#lang-btn:hover {
+    transform: scale(1.2);
+}
     </style>
 
     <div class="nav-container" id="main-nav">
         <nav class="custom-navbar">
             <a href="index.html" class="nav-logo">OK</a>
-            <input type="checkbox" id="menu-check">
-            <label for="menu-check" class="menu-btn">
-                <span></span><span></span><span></span>
-            </label>
-            
+            <div class="nav-actions">
+
+    <button id="lang-btn">🌐</button>
+
+    <input type="checkbox" id="menu-check">
+
+    <label for="menu-check" class="menu-btn">
+        <span></span><span></span><span></span>
+    </label>
+
             <ul class="nav-menu">
-                <li><a href="index.html">Home <span class="arrow-icon-nav">→</span></a></li>
-                <li><a href="servicios.html">Servicios <span class="arrow-icon-nav">→</span></a></li>
-                <li><a href="portafolio.html">Portafolio <span class="arrow-icon-nav">→</span></a></li>
-                <li><a href="nosotros.html">Nosotros <span class="arrow-icon-nav">→</span></a></li>
-                <li><a href="contacto.html">Contacto <span class="arrow-icon-nav">→</span></a></li>
-            </ul>
+    <li><a href="index.html"><span data-i18n="nav_home">Home</span> <span class="arrow-icon-nav">❯</span></a></li>
+    <li><a href="servicios.html"><span data-i18n="nav_servicios">Servicios</span> <span class="arrow-icon-nav">❯</span></a></li>
+    <li><a href="portafolio.html"><span data-i18n="nav_portafolio">Portafolio</span> <span class="arrow-icon-nav">❯</span></a></li>
+    <li><a href="nosotros.html"><span data-i18n="nav_nosotros">Nosotros</span> <span class="arrow-icon-nav">❯</span></a></li>
+    <li><a href="contacto.html"><span data-i18n="nav_contacto">Contacto</span> <span class="arrow-icon-nav">❯</span></a></li>
+</ul>
         </nav>
+        
+
     </div>
     `;
 
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
-
+    document.body.insertAdjacentHTML('beforeend', '<div class="overlay"></div>');
     // --- SCRIPT DE DETECCIÓN MEJORADO ---
     const navContainer = document.getElementById('main-nav');
+    const darkSection = document.querySelector('.proyecto');
     if (darkSection) {
-        // Configuramos el observador para que detecte con precisión
         const observerOptions = {
             root: null,
-            // Ajustamos el margen para que cambie justo cuando la sección toca el nav
-            rootMargin: "-10% 0px -80% 0px", 
+            rootMargin: "-10% 0px -80% 0px",
             threshold: 0
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Si la sección servicios (negra) está visible en el área del nav
                 if (entry.isIntersecting) {
                     navContainer.classList.add('is-on-dark');
                 } else {
@@ -196,6 +239,24 @@ function loadNavbar() {
 
         observer.observe(darkSection);
     }
+    const check = document.getElementById("menu-check");
+    const overlay = document.querySelector(".overlay");
+
+    check.addEventListener("change", () => {
+        if (check.checked) {
+            overlay.style.opacity = "1";
+            overlay.style.pointerEvents = "all";
+        } else {
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+        }
+    });
+
+    overlay.addEventListener("click", () => {
+        check.checked = false;
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+    });
 }
 
 window.onload = loadNavbar;

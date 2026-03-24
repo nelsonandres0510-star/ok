@@ -1,19 +1,11 @@
 window.addEventListener("load", () => {
+ splitLineas(); // 👈 primer render en español
 
-    document.querySelectorAll(".linea").forEach(el => {
-        const texto = el.textContent;
-
-        el.innerHTML = texto
-            .split("")
-            .map(letra => {
-                if (letra === " ") {
-                    return `<span style="width:20px;"></span>`;
-                }
-                return `<span>${letra}</span>`;
-            })
-            .join("");
-    });
-
+    const btn = document.getElementById('lang-btn');
+    if (btn) {
+        btn.addEventListener('click', toggleLang);
+        btn.textContent = '🌐 EN';
+    }
     let current = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;

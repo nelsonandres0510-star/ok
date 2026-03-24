@@ -16,27 +16,32 @@
     <div class="carrusel">
 
         <button class="btn prev">
-            ATRÁS <span class="flecha">❮</span> ATRÁS
+            <span data-i18n="btn_prev">ATRÁS</span>
+            <span class="flecha">❮</span>
+            <span data-i18n="btn_prev">ATRÁS</span>
         </button>
 
         <button class="btn next">
-            SIGUIENTE <span class="flecha">❯</span> SIGUIENTE
+            <span data-i18n="btn_next">SIGUIENTE</span>
+            <span class="flecha">❯</span>
+            <span data-i18n="btn_next">SIGUIENTE</span>
         </button>
 
         <div class="slides">
             <section class="slide active">
+                <img src="/img/like.png" class="logo-dvd" alt="Floating Logo">
                 <div class="frase">
-                    <div class="linea">LAS IDEAS</div>
-                    <div class="linea">CON CAUSA</div>
-                    <div class="linea">SIEMPRE</div>
-                    <div class="linea">DEJAN</div>
-                    <div class="linea">MARCA.</div>
+                    <div class="linea" data-es="LAS IDEAS" data-en="IDEAS">LAS IDEAS</div>
+                    <div class="linea" data-es="CON CAUSA" data-en="WITH PURPOSE">CON CAUSA</div>
+                    <div class="linea" data-es="SIEMPRE" data-en="ALWAYS">SIEMPRE</div>
+                    <div class="linea" data-es="DEJAN" data-en="LEAVE">DEJAN</div>
+                    <div class="linea" data-es="MARCA." data-en="A MARK.">MARCA.</div>
                 </div>
                 <div class="info-bottom">
 
-                    <div class="texto-left">
-                        OK NACIÓ PARA TRABAJAR CON MARCAS QUE TIENEN ALGO QUE DECIR Y UNA RAZÓN PARA EXISTIR.</div>
-
+                    <div class="texto-left" data-i18n="hero_desc">
+                        OK NACIÓ PARA TRABAJAR CON MARCAS QUE TIENEN ALGO QUE DECIR Y UNA RAZÓN PARA EXISTIR.
+                    </div>
                     <div class="right">
                         <div class="redes">
                             <!-- Behance -->
@@ -53,8 +58,8 @@
                         </div>
 
                         <button class="contacto">
-                            CONTACTO
-                            <span class="circulo">→</span>
+                            <span data-i18n="btn_contacto">CONTACTO</span>
+                            <span class="circulo">❯</span>
                         </button>
                     </div>
 
@@ -65,31 +70,31 @@
 
                 <div class="servicios-container">
 
-                    <h1 class="titulo">SERVICIOS</h1>
-                    <p class="subtitulo">(Lo que hacemos, pero con onda)</p>
+                    <h1 class="titulo" data-i18n="servicios_titulo">SERVICIOS</h1>
+                    <p class="subtitulo " data-i18n="servicios_sub">(Lo que hacemos, pero con onda)</p>
 
                     <div class="cards">
 
                         <div class="card">
                             <div class="icono">💡</div>
-                            <h3>BRANDING COMERCIAL</h3>
-                            <p>Construimos marcas para
+                            <h3 data-i18n="card1_titulo">BRANDING COMERCIAL</h3>
+                            <p data-i18n="card1_desc">Construimos marcas para
                                 negocios y personas que
                                 quieren crecer con propósito</p>
                         </div>
 
                         <div class="card">
                             <div class="icono">🎨</div>
-                            <h3>BRANDING SOCIAL</h3>
-                            <p>Acompañamos proyectos e
+                            <h3 data-i18n="card2_titulo">BRANDING SOCIAL</h3>
+                            <p data-i18n="card2_desc">Acompañamos proyectos e
                                 iniciativas que busquen generar un
                                 impacto positivo en su entorno.</p>
                         </div>
 
                         <div class="card">
                             <div class="icono">🚀</div>
-                            <h3>BRANDING POLÍTICO</h3>
-                            <p>Desarrollamos narrativa, identidad y
+                            <h3 data-i18n="card3_titulo">BRANDING POLÍTICO</h3>
+                            <p data-i18n="card3_desc">Desarrollamos narrativa, identidad y
                                 estratégia para el liderazgo de
                                 representantes y movilizadores de gente</p>
                         </div>
@@ -98,7 +103,7 @@
                 </div>
                 <div class="info-bottom">
 
-                    <div class="texto-left">
+                    <div class="texto-left" data-i18n="servicios_footer">
                         SERVICIOS QUE PARTEN DE UNA IDEA PERO RESPONDEN A UNA CAUSA.
                     </div>
 
@@ -118,8 +123,8 @@
                         </div>
 
                         <button class="contacto">
-                            CONTACTO
-                            <span class="circulo">→</span>
+                            <span data-i18n="btn_contacto">CONTACTO</span>
+                            <span class="circulo">❯</span>
                         </button>
                     </div>
                 </div>
@@ -130,14 +135,18 @@
 
                 <div class="portafolio-container">
 
-                    <h1 class="titulo">PORTAFOLIO</h1>
-                    <p class="subtitulo">
+                    <h1 class="titulo" data-i18n="portafolio_titulo">PORTAFOLIO</h1>
+                    <p class="subtitulo" data-i18n="portafolio_sub">
                         Proyectos que reflejan ideas con propósito.
                     </p>
 
                     <div class="grid">
 
-                        <div class="item"><img src="img/4.jpg" alt=""></div>
+                        <div class="item">
+                            <a href="portafolio.html">
+                                <img src="img/4.jpg" alt="">
+                            </a>
+                        </div>
                         <div class="item"><img src="img/2.jpg" alt=""></div>
                         <div class="item"><img src="img/3.jpg" alt=""></div>
                         <div class="item"><img src="img/4.jpg" alt=""></div>
@@ -145,7 +154,7 @@
                     </div>
                     <div class="info-bottom">
 
-                        <div class="texto-left">
+                        <div class="texto-left" data-i18n="portafolio_footer">
                             CADA PROYECTO NOS CAMBIÓ UN POCO. CADA CLIENTE
                             ENTENDIÓ ALGO MÁS DE SU PROPIA MARCA MIRA CÓMO
                             RESOLVIMOS, CREAMOS, SACAMOS PECHO. </div>
@@ -166,8 +175,8 @@
                             </div>
 
                             <button class="contacto">
-                                CONTACTO
-                                <span class="circulo">→</span>
+                                <span data-i18n="btn_contacto">CONTACTO</span>
+                                <span class="circulo">❯</span>
                             </button>
                         </div>
                     </div>
@@ -178,21 +187,21 @@
 
                 <div class="nosotros-container">
 
-                    <h1 class="titulo">NOSOTROS</h1>
-                    <p class="subtitulo">
+                    <h1 class="titulo" data-i18n="nosotros_titulo">NOSOTROS</h1>
+                    <p class="subtitulo" data-i18n="nosotros_sub">
                         (Creamos causas)
                     </p>
 
                     <div class="contenido">
 
-                        <p class="texto">
+                        <p class="texto" data-i18n="nosotros_p1">
                             En OK creemos que toda marca nace desde una idea.
                             Pero no todas encuentran su causa. Por eso nuestro trabajo no empieza diseñando…
                             empieza entendiendo. Buscamos esa tensión que existe en el entorno, eso que no está
                             funcionando, eso que necesita cambiar.
                         </p>
 
-                        <p class="texto">
+                        <p class="texto" data-i18n="nosotros_p2">
                             Cuando la idea encuentra su causa, deja de ser intención y se convierte en postura. Y cuando
                             esa postura toma forma, nace una marca. Una marca que no solo se ve, sino que deja huella en
                             su entorno y en su gente.
@@ -202,9 +211,9 @@
                     <div class="proceso">
 
                         <div class="paso">
-                            <h3>1. Idea</h3>
+                            <h3 data-i18n="paso1_titulo">1. Idea</h3>
                             <img src="img/idea.png" alt="">
-                            <p>Todo empieza como
+                            <p data-i18n="paso1_desc">Todo empieza como
                                 ruido, un glitch, algo que
                                 no encaja, pero persiste</p>
                         </div>
@@ -212,9 +221,9 @@
                         <div class="flecha">→</div>
 
                         <div class="paso">
-                            <h3>2. Causa</h3>
+                            <h3 data-i18n="paso2_titulo">2. Causa</h3>
                             <img src="img/causa.png" alt="">
-                            <p>La idea encuentra su por qué.
+                            <p data-i18n="paso2_desc">La idea encuentra su por qué.
                                 deja de ser ocurrencia
                                 y se vuelve postura</p>
                         </div>
@@ -222,9 +231,9 @@
                         <div class="flecha">→</div>
 
                         <div class="paso">
-                            <h3>3. Marca</h3>
+                            <h3 data-i18n="paso3_titulo">3. Marca</h3>
                             <img src="/img/marca.png" alt="">
-                            <p>La causa toma forma.
+                            <p data-i18n="paso3_desc">La causa toma forma.
                                 se vuelve identidad,
                                 lenguaje y símbolo</p>
                         </div>
@@ -232,28 +241,25 @@
                         <div class="flecha">→</div>
 
                         <div class="paso">
-                            <h3>4. Transforma</h3>
+                            <h3 data-i18n="paso4_titulo">4. Transforma</h3>
                             <img src="img/transforma.png" alt="">
-                            <p>Y ahí es cuando todo importa.
+                            <p data-i18n="paso4_desc">Y ahí es cuando todo importa.
                                 Una marca no vive sola, vive con la
                                 gente, en la calle y en la conversación</p>
                         </div>
 
                     </div>
                     <div class="info-bottom">
-                        <div class="texto-left">
+                        <div class="texto-left" data-i18n="nosotros_footer">
                             OK NACIÓ PARA DARLE VOZ A LAS MARCAS
                             QUE QUIEREN HACER, MÁS QUE VENDER. </div>
 
                         <div class="right">
                             <div class="redes">
-                                <!-- Behance -->
                                 <a href="#">
                                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/behance.svg"
                                         class="icono">
                                 </a>
-
-                                <!-- Instagram -->
                                 <a href="#">
                                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg"
                                         class="icono">
@@ -261,8 +267,8 @@
                             </div>
 
                             <button class="contacto">
-                                CONTACTO
-                                <span class="circulo">→</span>
+                                <span data-i18n="btn_contacto">CONTACTO</span>
+                                <span class="circulo">❯</span>
                             </button>
                         </div>
 
@@ -274,6 +280,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="lang.js"></script>
 
 </body>
 
